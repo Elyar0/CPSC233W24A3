@@ -29,11 +29,40 @@ public final class Reader {
             int columns = Integer.parseInt(br.readLine());
             Battle battle = new Battle(rows, columns); // Initialize the battle with dimensions
 
-            //
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Split each line into parts
+                String[] parts = line.split(",");
+                switch (parts[0]) {
+                    case "Maximal":
+                        // Create and add a Maximal entity to battle
+                        battle.addEntity(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]),
+                                new Maximal(
+                                        parts[3].charAt(0), // symbol
+                                        parts[4], // name
+                                        Integer.parseInt(parts[5]), // health
+                                        Integer.parseInt(parts[6]), // weaponStrength
+                                        Integer.parseInt(parts[7])  // armorStrength
+                                ));
+                        break;
+                    case "PredaCon":
+                        // Create and add a PredaCon entity to battle
+                        battle.addEntity(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]),
+                                new PredaCon(
+                                        parts[3].charAt(0), // symbol
+                                        parts[4], // name
+                                        Integer.parseInt(parts[5]), // health
+                                        WeaponType.valueOf(parts[6]) // weaponType
+                                ));
+                        break;
+                    case "Wall":
+                        // Add a Wall entity to the battle using static
+                        battle.addEntity(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]), Wall.getWall());
+                        break;
 
 
-
-
+                }
+            }
             return battle;
         } catch (IOException e) {
             e.printStackTrace();
