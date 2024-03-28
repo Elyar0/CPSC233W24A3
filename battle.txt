@@ -6,6 +6,6 @@
 1,0
 1,1
 1,2
-2,0
+2,0,WALL
 2,1
 2,2,MAXIMAL,O,Optimus Primal,10,3,1
