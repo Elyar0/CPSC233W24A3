@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5491d803-527b-4212-b9b1-171e7b0d6a79" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5491d803-527b-4212-b9b1-171e7b0d6a79" name="Changes" comment="Implement battle state" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,22 +20,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPENED",
-    "assignee": {
-      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
-      "username": "arman.najari1",
-      "fullname": "Arman Najari"
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;arman.najari1&quot;,
+      &quot;fullname&quot;: &quot;Arman Najari&quot;
     }
   }
-}]]></component>
-  <component name="GitLabMergeRequestsSettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "first": "https://csgit.ucalgary.ca/arman.najari1/cpsc233w24a3.git",
-    "second": "8529887f-be8a-4751-b160-d11ffbf44c90"
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://csgit.ucalgary.ca/arman.najari1/cpsc233w24a3.git&quot;,
+    &quot;second&quot;: &quot;8529887f-be8a-4751-b160-d11ffbf44c90&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -103,6 +101,7 @@
       <updated>1710302053748</updated>
       <workItem from="1710302054791" duration="2636000" />
       <workItem from="1710304713837" duration="795000" />
+      <workItem from="1711647940759" duration="7683000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -112,7 +111,39 @@
       <option name="project" value="LOCAL" />
       <updated>1710304361028</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1711648043370</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711648043370</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initialize Battle from file with dimensions">
+      <option name="closed" value="true" />
+      <created>1711653200069</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711653200069</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add entity parsing and creation to battle loading">
+      <option name="closed" value="true" />
+      <created>1711657938126</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711657938126</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Implement battle state">
+      <option name="closed" value="true" />
+      <created>1711658826148</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711658826148</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +162,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="bug fix" />
+    <MESSAGE value="Initialize Battle from file with dimensions" />
+    <MESSAGE value="Add entity parsing and creation to battle loading" />
+    <MESSAGE value="Implement battle state" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement battle state" />
   </component>
 </project>
