@@ -1,45 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="rw.app.MainController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rw.app.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
+            <MenuItem mnemonicParsing="false" onAction="#handleLoad" text="Load..." />
+            <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Save" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
+            <MenuItem mnemonicParsing="false" onAction="#handleQuit" text="Quit" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
@@ -53,14 +45,58 @@
       <items>
         <AnchorPane>
           <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Master" textAlignment="CENTER" wrapText="false">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Battle" textAlignment="CENTER" wrapText="false">
               <font>
                 <Font size="18.0" fx:id="x1" />
               </font>
               <textFill>
-                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+                <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
+                  <TextField fx:id="rowsTextField" layoutX="59.0" layoutY="57.0" />
+                  <TextField fx:id="columnsTextField" layoutX="59.0" layoutY="95.0" />
+                  <Label alignment="CENTER" layoutY="61.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Rows:" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="99.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Columns:" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                  <Button layoutX="109.0" layoutY="135.0" mnemonicParsing="false" onAction="#handleCreateNewBattle" text="Create New Battle" />
+                  <Separator layoutX="11.0" layoutY="176.0" prefWidth="200.0" />
+                  <RadioButton fx:id="predaconType" layoutX="11.0" layoutY="187.0" mnemonicParsing="false" onAction="#GetRobot" selected="true" text="PredaCon">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="robot" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="maximalType" layoutX="145.0" layoutY="187.0" mnemonicParsing="false" onAction="#GetRobot" text="Maximal" toggleGroup="$robot" />
+                  <Pane fx:id="predaconPane" layoutX="11.0" layoutY="214.0" prefHeight="319.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutY="18.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Symbol" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="predaconSymbol" layoutX="64.0" layoutY="14.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label alignment="CENTER" layoutY="50.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Name" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="predaconName" layoutX="64.0" layoutY="46.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label alignment="CENTER" layoutY="83.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Health" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="predaconHealth" layoutX="64.0" layoutY="79.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label alignment="CENTER" layoutX="70.0" layoutY="116.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Weapon:" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <RadioButton fx:id="predaconTeeth" layoutX="57.0" layoutY="143.0" mnemonicParsing="false" selected="true" text="Teeth(4)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="weapon" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="predaconClaws" layoutX="57.0" layoutY="168.0" mnemonicParsing="false" text="Claws(3)" toggleGroup="$weapon" />
+                        <RadioButton fx:id="predaconLaser" layoutX="57.0" layoutY="194.0" mnemonicParsing="false" text="Laser(2)" toggleGroup="$weapon" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="maximalPane" layoutX="11.0" layoutY="214.0" prefHeight="319.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Label alignment="CENTER" layoutY="18.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Symbol" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="maximalSymbol" layoutX="64.0" layoutY="14.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label alignment="CENTER" layoutY="50.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Name" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="maximalName" layoutX="64.0" layoutY="46.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label alignment="CENTER" layoutY="83.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Health" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="maximalHealth" layoutX="64.0" layoutY="79.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label alignment="CENTER" layoutY="117.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Weapon" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="maximalWeapon" layoutX="64.0" layoutY="113.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label alignment="CENTER" layoutY="151.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Armor" textAlignment="CENTER" textFill="#6b6b6b" wrapText="false" />
+                        <TextField fx:id="maximalArmor" layoutX="64.0" layoutY="147.0" prefHeight="25.0" prefWidth="122.0" />
+                     </children>
+                  </Pane>
           </children>
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -68,6 +104,7 @@
             <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
               <children>
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                        <GridPane fx:id="battleGrid" layoutX="20.0" layoutY="50.0" />
               </children>
             </AnchorPane>
           </content>
@@ -75,22 +112,23 @@
         <AnchorPane>
           <children>
             <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                  <TextArea fx:id="informationArea" editable="false" layoutX="11.0" layoutY="41.0" prefHeight="200.0" prefWidth="200.0" text="Choose a filled grid to see information" wrapText="true" />
           </children>
         </AnchorPane>
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
       <children>
-        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+        <Label fx:id="statusLabelLeft" maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
           <font>
             <Font size="11.0" fx:id="x3" />
           </font>
           <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+            <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
           </textFill>
         </Label>
         <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+        <Label fx:id="statusLabelRight" font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
       </children>
       <padding>
         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

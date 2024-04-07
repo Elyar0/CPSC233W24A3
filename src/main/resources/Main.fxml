@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+
+<?import java.lang.String?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rw.app.MainController" prefHeight="700.0" prefWidth="900.0">
+  <top>
+    <MenuBar BorderPane.alignment="CENTER">
+      <Menu text="File">
+        <MenuItem fx:id="loadMenuItem" onAction="#handleLoad" text="Load" />
+        <MenuItem fx:id="saveMenuItem" onAction="#handleSave" text="Save" />
+        <MenuItem fx:id="saveAsMenuItem" onAction="#handleSaveAs" text="Save As..." />
+        <MenuItem fx:id="quitMenuItem" onAction="#handleQuit" text="Quit" />
+      </Menu>
+      <Menu text="Help">
+        <MenuItem fx:id="aboutMenuItem" onAction="#handleAbout" text="About RWMapEditor" />
+      </Menu>
+    </MenuBar>
+  </top>
+  <center>
+    <SplitPane dividerPositions="0.3, 0.6" focusTraversable="true" BorderPane.alignment="CENTER">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Battle Setup" />
+            <TextField fx:id="rowsTextField" layoutX="14.0" layoutY="34.0" promptText="Rows" />
+            <TextField fx:id="columnsTextField" layoutX="14.0" layoutY="68.0" promptText="Columns" />
+            <Button fx:id="createNewBattleButton" layoutX="14.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleCreateNewBattle" text="Create New Battle" />
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Entity Setup" />
+            <RadioButton fx:id="predaconRadioButton" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" text="PredaCon" />
+            <RadioButton fx:id="maximalRadioButton" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" text="Maximal" />
+            <TextField fx:id="entityNameTextField" layoutX="14.0" layoutY="82.0" promptText="Name" />
+            <TextField fx:id="entitySymbolTextField" layoutX="14.0" layoutY="106.0" promptText="Symbol" />
+            <TextField fx:id="entityHealthTextField" layoutX="14.0" layoutY="130.0" promptText="Health" />
+            <ComboBox fx:id="entityWeaponComboBox" layoutX="14.0" layoutY="154.0" promptText="Weapon">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <!-- Assuming these are your WeaponType enum values -->
+                  <String fx:value="CLAWS" />
+                  <String fx:value="LASER" />
+                  <String fx:value="TEETH" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <TextField fx:id="entityArmorTextField" layoutX="14.0" layoutY="178.0" promptText="Armor" />
+            <!-- Add this TextField below the existing ones in the Entity Setup AnchorPane -->
+            <TextField fx:id="maximalWeaponTextField" layoutX="14.0" layoutY="202.0" promptText="Maximal Weapon Strength" />
+            <Button layoutX="16.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleAddEntity" text="Add Entity" />
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <GridPane fx:id="battleGrid" layoutX="14.0" layoutY="14.0" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </center>
+  <right>
+    <VBox spacing="40.0" style="-fx-padding: 50;">
+      <Label text="Details" style="-fx-font-weight: bold;" />
+      <Label fx:id="detailsTypeLabel" text="Type: " />
+      <Label fx:id="detailsSymbolLabel" text="Symbol: " />
+      <Label fx:id="detailsNameLabel" text="Name: " />
+      <Label fx:id="detailsHealthLabel" text="Health: " />
+      <Label fx:id="detailsWeaponLabel" text="Weapon: " />
+      <Label fx:id="detailsArmorLabel" text="Armor: " />
+    </VBox>
+  </right>
+  <bottom>
+    <HBox spacing="10">
+      <children>
+        <Label fx:id="statusLabelLeft" text="Status Left" />
+        <Pane HBox.hgrow="ALWAYS" />
+        <Label fx:id="statusLabelRight" text="Status Right" />
+      </children>
+      <padding>
+        <Insets bottom="15" left="15" right="15" top="15" />
+      </padding>
+    </HBox>
+  </bottom>
+</BorderPane>
